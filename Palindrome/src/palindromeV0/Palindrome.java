@@ -3,27 +3,28 @@ package palindromeV0;
 public class Palindrome {
 
 	public boolean palindromChecker(String... words) {
-		String strIn;
-		StringBuilder sbForward;
-		StringBuilder sbReverse;
 		boolean isPalindrome = true;
+		String strWord;
+		StringBuilder sbWord;
+		StringBuilder sbWordReversed;
 
-		for (String item : words) {
+		for (String word : words) {
 
-			// Remove whitespaces characters, if any, from input since we are testing for
-			// palindrome words
-			strIn = item.replaceAll("\\s+", "").toLowerCase();
+			// Remove all punctuation and whitespace in word item before processing
+			// This is based on Dictionary.com's definition for palindrome
+			strWord = word.replaceAll("\\p{Punct}|\\s+", "").toLowerCase();
 			
-			// Convert word from String to StringBuilder
-			sbForward = new StringBuilder(strIn);
+			// Convert String item to StringBuilder type
+			sbWord = new StringBuilder(strWord);
 			
-			// Create a reverse version of StringBuilder version
-			sbReverse = sbForward.reverse();
+			// Reverse character order in sbItem
+			sbWordReversed = sbWord.reverse();
 
-			// Test the compare the word to it's reverse version
-			if (!strIn.equals(sbReverse.toString())) {
+			// Compare word to reversed word.  Note: all words are considered palindromes until proven
+			// otherwise. If not a palindrome, set flag to false.
+			if (!strWord.equals(sbWordReversed.toString())) {
 				isPalindrome = false;
-				System.out.println("Failed on: " + sbReverse.toString() + " " + strIn);
+				System.out.println("Failed on: " + sbWordReversed.toString() + " " + strWord);
 			}
 		}
 		System.out.println();
