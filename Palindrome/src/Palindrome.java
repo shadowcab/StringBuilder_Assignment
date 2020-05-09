@@ -11,6 +11,8 @@ public class Palindrome {
 			// Remove all punctuation and whitespace in "word" and convert to lower case before 
 			// testing for palindrome.  This constraint is based on Dictionary.com's definition 
 			// and examples of palindromes (https://www.dictionary.com/browse/palindrome).
+			// Therefore, palindromes are tested as case-insensitive and punctuation-less with 
+			// no whitespace.
 			strWord = word.replaceAll("\\p{Punct}|\\s+", "").toLowerCase();
 			
 			// Convert (String) word to StringBuilder type
