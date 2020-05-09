@@ -1,5 +1,3 @@
-package palindromeV0;
-
 public class Palindrome {
 
 	public boolean palindromChecker(String... words) {
